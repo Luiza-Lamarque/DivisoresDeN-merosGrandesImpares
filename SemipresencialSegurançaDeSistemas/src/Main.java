@@ -9,23 +9,24 @@ public class Main {
         System.out.println("Digite o numero a ser testado:\n");
         long numeroParaTestar=teclado.nextLong();
         long tempoInicial = System.currentTimeMillis();
-       for(long i=numeroParaTestar-2;i>=1; i=i-2){
+       for(long i=2;i<=numeroParaTestar; i++){
            if(numeroParaTestar % i == 0){
                count++;
                if(aux1==0){
-                   aux1=i;
+                   aux1=numeroParaTestar/i;
                }else if(aux2==0){
-                   aux2=i;
-               }else{
-                   System.out.println(aux1+" e "+aux2+" sao divisores de "+numeroParaTestar);
+                   aux2=numeroParaTestar/i;
                    break;
                }
            }
        }
-       if(count<=1){
+       if(count==1){
            System.out.println(numeroParaTestar+" e primo");
+       }else{
+           System.out.println(aux1+" e "+aux2+" sao divisores de "+numeroParaTestar);
        }
        long tempoPercorrido=System.currentTimeMillis() - tempoInicial;
         System.out.println("o metodo executou em " + tempoPercorrido);
     }
 }
+
